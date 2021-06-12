@@ -1,0 +1,27 @@
+import os
+import pyke
+
+PKG_NAME = "pkg"
+
+@pyke.task
+def build():
+    pkgs = ["pip", "setuptools", "wheel", "twine"]
+
+    os.system(f"pip install --upgrade {' '.join(pkgs)}")
+    os.system("python3 setup.py sdist bdist_wheel")
+
+
+@pyke.task(deps=["build"])
+def dist():
+    os.system("python3 -m twine upload dist/*")
+
+
+@pyke.task(deps=["build"])
+def clean():
+    targets = ["build", "dist", f"{PKG_NAME}.egg-info"]
+
+    for t in targets:
+        os.system(f"rm -rf {t}")
+
+
+pyke.run()
