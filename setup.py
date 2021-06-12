@@ -5,8 +5,6 @@ version = pyke.__version__
 readme = open("README.md").read()
 url = "https://github.com/frissyn/pyke"
 description = pyke.__description__
-scripts = pyke.__scripts__
-
 
 setuptools.setup(
     name = "pykefile",
@@ -26,10 +24,9 @@ setuptools.setup(
 
     include_package_data = True,
     python_requires = ">=3.8.0",
-    install_requires = ["click"],
 
     entry_points = {
-        "console_scripts": scripts
+        "console_scripts": ["pyke = pyke:runner"]
     },
 
     classifiers = [
