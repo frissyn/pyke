@@ -2,14 +2,14 @@
 
 (WIP, Beta Release) Make-like build automation tool for Python projects with extensive DSL features.
 
-### Features:
+## Features:
 
 + Users can specify tasks, subtasks, and task rules.
 + Significantly less confusing than Makefiles (is that a <kbd>tab</kbd> or <kbd>space</kbd>...?)
 + Complete Python DSL with full access to builtins and external dependencies.
 + Run and execute tasks in parallel (multitasking) (task is a recurring theme, huh...).
 
-### **Example:**
+## Example:
 
 ```python
 import pyke
@@ -36,7 +36,7 @@ Building the project...
 Distributing the project...
 ```
 
-### Installation:
+## Installation:
 
 Install the `pykefile` library with `pip`. Requires Python 3.8 or higher.
 
@@ -50,15 +50,34 @@ You can also add it your developement dependencies with `poetry`.
 python -m poetry add pykefile --dev 
 ```
 
-### Usage:
+## Usage:
 
 Just like any other Makefile, you'll need the `Pykefile` in your current directory. (`Pykefile.py` also works)
 
 Then use the `pyke` command to execute and run specified tasks. 
 
-Running `pyke` without any commands will call the default task if there is one. The first argument will be call a task by that name.
+Running `pyke` without any commands will call the default task if there is one. The first argument will call a task by that name.
+
+## Developement:
+
+1. Fork the repository: [`Fork`](https://github.com/frissyn/pyke/fork)
+2. Clone locally (`git clone https://github.com/<username>/pyke.git`)
+3. Create your feature branch (`git checkout -b my-new-feature`)
+4. Commit your changes (`git commit -a -m 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request! 🎉
+
+**Running locally:**
+
+In order to properly test the `pyke` commands, install the package locally like so:
+
+```shell
+python -m pip install -e .
+```
+
+You can now use `pyke` in your terminal, and it will automatically use the latest changes to the source code.
 
 
-### Final Notes:
+## Final Notes:
 
 Pyke is still in beta and I'm open to feature requests or bug reports. Feel free to open an issue! Thanks for checking this project out and I hope it'll make your Python developement process easier!
