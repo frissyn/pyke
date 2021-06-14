@@ -1,12 +1,18 @@
 import os
+import re
 import sys
 import platform
+
 import typing as t
 import subprocess as sp
 
 from pyke import tasks
+from pyke import get_task
 from pyke import exec_task
+from pyke import default_task
 from pyke import errors as e
+
+from pyke import __doc__ as dcs
 
 
 def env(key: t.Text, default: t.Optional[t.Any] = None) -> t.Any:
@@ -37,20 +43,25 @@ def run() -> t.NoReturn:
             args = sys.argv[i + 2 :]
 
     if args == list(["--help"]):
-        print(__import__("pyke").__doc__)
+        print(dcs)
         exit(0)
 
     if not args:
-        todo = [t for n, t in tasks.items() if t["o"].get("default")]
+        todo = default_task()
 
         if not todo:
             raise e.NoDefaultTaskError
         else:
-            exec_task(todo[0])
-            exit(0)
+            exec_task(todo, args[0:])
     else:
-        exec_task(args[0])
-        exit(0)
+        task = get_task(' '.join(args))
+
+        if not task:
+            raise e.NoTaskFoundError()
+
+        exec_task(task, args)
+    
+    exit(0)
 
 
 def shell(cmd: t.Text) -> sp.CompletedProcess:
