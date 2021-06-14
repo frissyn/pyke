@@ -5,9 +5,10 @@
 ## Features:
 
 + Users can specify tasks, subtasks, and task rules.
++ Use regex rules patterns to create targets for tasks.
 + Significantly less confusing than Makefiles (is that a <kbd>tab</kbd> or <kbd>space</kbd>...?)
 + Complete Python DSL with full access to builtins and external dependencies.
-+ Run and execute tasks in parallel (multitasking) (task is a recurring theme, huh...).
++ **[WIP]** Run and execute tasks in parallel with each other (threaded multitasking).
 
 ## Example:
 
