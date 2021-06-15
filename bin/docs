@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+pip install --upgrade sphinx sphinx-rtd-theme
+
+cd docs
+
+make clean
+make html
+
+ruby -run -ehttpd _build/html -p 8080
+
+exit $?
