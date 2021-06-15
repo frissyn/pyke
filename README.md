@@ -68,7 +68,7 @@ Running `pyke` without any commands will call the default task if there is one. 
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create a new Pull Request! 🎉
 
-**Running locally:**
+**Local Developement:**
 
 In order to properly test the `pyke` commands, install the package locally like so:
 
@@ -76,8 +76,9 @@ In order to properly test the `pyke` commands, install the package locally like 
 python -m pip install -e .
 ```
 
-You can now use `pyke` in your terminal, and it will automatically use the latest changes to the source code.
+You can now use `pyke` in your terminal, and it will automatically use the latest changes to the source code. 
 
+Use `bash bin/build` to build the project. `bash bin/docs` will update and start the documentation server locally.
 
 ## Final Notes:
 
