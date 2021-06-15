@@ -1,3 +1,9 @@
+class NoPykefileFound(Exception):
+    """Could not find a valid `Pykefile` in the current directory."""
+
+    def __str__(self):
+        return "Could not find a valid `Pykefile` in the current directory."
+
 class NoTaskFoundError(Exception):
     """Could not find given task name."""
 
